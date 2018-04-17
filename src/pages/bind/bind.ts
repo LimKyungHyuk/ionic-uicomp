@@ -8,7 +8,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage({name:'bindPage'})
+// @IonicPage({name:'bindPage'})
+@IonicPage()
 @Component({
   selector: 'page-bind',
   templateUrl: 'bind.html',
@@ -18,11 +19,21 @@ export class BindPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    alert('ionViewDidLoad BindPage' + this.navParams.get("name"));
-  }
 
   goBack(){
     this.navCtrl.pop();
   }
+
+  ionViewDidLoad(){
+    console.log("1. bind ionViewDidLoad()" + this.navParams.get("name"));
+  }
+
+  ionViewWillEnter(){
+    console.log("2. bind ionViewWillEnter()");
+  }
+
+  ionViewWillUnload(){
+    console.log("3. bind ionViewWillUnload()");
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {BindPage} from "../bind/bind";
+import {ComponentPage} from "../component/component";
 
 @Component({
   selector: 'page-home',
@@ -8,7 +10,7 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   items = [
-    {"id":1, "name":"첫번째 Item"},
+    {"id":1, "name":"Component"},
     {"id":2, "name":"두번째 Item"},
     {"id":3, "name":"세번째 Item"}
   ];
@@ -20,7 +22,10 @@ export class HomePage {
   }
 
   itemSelected(item){
-    alert(item.id + " " + item.name);
+    if(item.id === 1){
+      this.navCtrl.push("ComponentPage");
+    }
+
   }
 
   myButton(event){
@@ -28,7 +33,7 @@ export class HomePage {
     if(typeof this.userName !== "undefined"){
       console.log(event.target.textContent + " " + event.clientX + ", " + event.clientY);
 
-      this.navCtrl.push("bindPage", {name:this.userName});
+      this.navCtrl.push("BindPage", {name:this.userName});
 
     }else{
       // 입력값이 없는 경우
@@ -39,6 +44,19 @@ export class HomePage {
   }
 
   disabledSwitch = false;
+
+  ionViewDidLoad(){
+    console.log("1. Home ionViewDidLoad()");
+  }
+
+  ionViewWillEnter(){
+    console.log("2. Home ionViewWillEnter()");
+  }
+
+  ionViewWillUnload(){
+    console.log("3. Home ionViewWillUnload()");
+  }
+
 
 
 }
