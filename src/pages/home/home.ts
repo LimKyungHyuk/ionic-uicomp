@@ -19,4 +19,14 @@ export class HomePage {
     this.userName = "아이오닉";
   }
 
+  itemSelected(item){
+    alert(item.id + " " + item.name);
+  }
+
+  myButton(event){
+    alert(event.target.textContent);
+    console.log(event.target.textContent + " " + event.clientX + ", " + event.clientY);
+  }
+
+  disabledSwitch = false;
 }

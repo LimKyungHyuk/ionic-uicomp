@@ -8,12 +8,24 @@
 
 <ion-content padding>
  <h1>환영합니다!</h1>
-  <h2>{{userName}}</h2>
 
   <ion-list>
-    <ion-item *ngFor="let item of items">
+    <ion-item *ngFor="let item of items" (click) = "itemSelected(item)">
       {{item.name}}
     </ion-item>
 
   </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>사용자 이름:</ion-label>
+      <ion-input type = "text" [(ngModel)] = "userName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>입력하 값 출력</ion-label>
+      <ion-label>{{userName}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button full [disabled] = "disabledSwitch" (click) = "myButton($event)">My Button</button>
 </ion-content>
