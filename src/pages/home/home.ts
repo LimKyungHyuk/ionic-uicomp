@@ -26,7 +26,12 @@ export class HomePage {
   myButton(event){
     alert(event.target.textContent);
     console.log(event.target.textContent + " " + event.clientX + ", " + event.clientY);
+
+    this.navCtrl.push("bindPage");
+
   }
 
   disabledSwitch = false;
+
+
 }
