@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import {ModalPage} from "../modal/modal";
+import {SlidePage} from "../slide/slide";
 /**
  * Generated class for the ComponentPage page.
  *
@@ -53,7 +54,14 @@ export class ComponentPage {
 
   modal(){
     let modal = this.modalCtrl.create("ModalPage");
+    modal.onDidDismiss(data => console.log(data));
     modal.present();
+
+  }
+
+  slide(){
+    this.navCtrl.push("SlidePage");
+
 
   }
 
