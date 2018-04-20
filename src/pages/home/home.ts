@@ -53,10 +53,5 @@ export class HomePage {
     console.log("2. Home ionViewWillEnter()");
   }
 
-  ionViewWillUnload(){
-    console.log("3. Home ionViewWillUnload()");
-  }
-
-
 
 }

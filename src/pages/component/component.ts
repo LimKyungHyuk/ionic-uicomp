@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
-import {AlertController, IonicPage, ModalController, NavController, NavParams, ToastController} from 'ionic-angular';
+import {
+  AlertController, IonicPage, LoadingController, ModalController, NavController, NavParams,
+  ToastController
+} from 'ionic-angular';
 import { Platform, ActionSheetController } from 'ionic-angular';
 import {ModalPage} from "../modal/modal";
 import {SlidePage} from "../slide/slide";
 import {AccountInterface} from "../../interfaces/account";
 import {NavPage} from "../nav/nav";
+import {LoadingProvider} from "../../providers/loading/loading";
 
 /**
  * Generated class for the ComponentPage page.
@@ -28,7 +32,9 @@ export class ComponentPage {
               public platform: Platform,
               public modalCtrl : ModalController,
               public alertCtrl: AlertController,
-              public toastCtrl: ToastController){
+              public toastCtrl: ToastController,
+              public loadingCtrl: LoadingController,
+              public loaderProCtrl : LoadingProvider){
   }
 
   ionViewDidLoad() {
@@ -106,6 +112,23 @@ export class ComponentPage {
     });
     toast.present();
     toast.onDidDismiss((data) => console.log("토스트 사라짐" + data));
+  }
+
+  loading() {
+    // let loading = this.loadingCtrl.create({
+    //   content: '잠시만기다려주세요...'
+    // });
+    // loading.present();
+    // setTimeout(() => {
+    //   loading.dismiss();
+    // }, 3000);
+
+    this.loaderProCtrl.show();
+
+    setTimeout(()=> {
+      this.loaderProCtrl.hide();
+
+    }, 3000);
   }
 
 }
